@@ -21,12 +21,26 @@ const _schema = i.schema({
   },
   links: {
     profileUser: {
-      forward: { on: "profiles", has: "one", label: "$user" },
+      forward: {
+        on: "profiles",
+        has: "one",
+        label: "$user",
+        onDelete: "cascade",
+      },
       reverse: { on: "$users", has: "one", label: "profile" },
     },
-    profileUploads: {
-      forward: { on: "profiles", has: "many", label: "$files" },
-      reverse: { on: "$files", has: "one", label: "profile" },
+    profilesAvatar: {
+      forward: {
+        on: "profiles",
+        has: "one",
+        label: "avatar",
+        onDelete: "cascade",
+      },
+      reverse: {
+        on: "$files",
+        has: "one",
+        label: "profile",
+      },
     },
   },
   rooms: {},
