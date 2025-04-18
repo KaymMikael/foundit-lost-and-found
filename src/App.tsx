@@ -1,13 +1,13 @@
 import { Route, Routes } from "react-router";
 import HomePage from "./pages/HomePage";
-import LoginPage from "./pages/LoginPage";
+import { Toaster } from "@/components/ui/sonner";
 
 const App = () => {
   return (
     <>
+      <Toaster />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/login" element={<LoginPage />} />
       </Routes>
     </>
   );
