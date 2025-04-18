@@ -19,6 +19,21 @@ const rules = {
    *   bind: ["isOwner", "auth.id != null && auth.id == data.ownerId"],
    * },
    */
+  $files: {
+    allow: {
+      view: "true",
+      create: "true",
+      delete: "true",
+    },
+  },
+  profiles: {
+    allow: {
+      view: "true",
+      create: "true",
+      delete: "true",
+      update: "true",
+    },
+  },
 } satisfies InstantRules;
 
 export default rules;
