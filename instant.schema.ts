@@ -24,6 +24,10 @@ const _schema = i.schema({
       forward: { on: "profiles", has: "one", label: "$user" },
       reverse: { on: "$users", has: "one", label: "profile" },
     },
+    profileUploads: {
+      forward: { on: "profiles", has: "many", label: "$files" },
+      reverse: { on: "$files", has: "one", label: "profile" },
+    },
   },
   rooms: {},
 });
