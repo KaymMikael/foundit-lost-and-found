@@ -11,38 +11,8 @@ const _schema = i.schema({
     $users: i.entity({
       email: i.string().unique().indexed(),
     }),
-    profiles: i.entity({
-      firstName: i.string(),
-      lastName: i.string(),
-      age: i.number(),
-      gender: i.string(),
-      createdAt: i.date(),
-    }),
   },
-  links: {
-    profileUser: {
-      forward: {
-        on: "profiles",
-        has: "one",
-        label: "$user",
-        onDelete: "cascade",
-      },
-      reverse: { on: "$users", has: "one", label: "profile" },
-    },
-    profilesAvatar: {
-      forward: {
-        on: "profiles",
-        has: "one",
-        label: "avatar",
-        onDelete: "cascade",
-      },
-      reverse: {
-        on: "$files",
-        has: "one",
-        label: "profile",
-      },
-    },
-  },
+  links: {},
   rooms: {},
 });
 
