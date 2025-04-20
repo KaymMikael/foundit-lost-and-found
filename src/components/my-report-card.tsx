@@ -16,7 +16,16 @@ const MyReportCard = ({ post }: MyReportCardProps) => {
           <div className="flex items-center justify-between">
             <div className="flex gap-2">
               {/* Status */}
-              <Badge variant="outline" className="capitalize">
+              <Badge
+                variant="outline"
+                className={`capitalize ${
+                  post.status === "active"
+                    ? "bg-[#0066ff]"
+                    : post.status === "resolved"
+                    ? "bg-[#28a745]"
+                    : "bg-[#978129]"
+                }`}
+              >
                 {post.status}
               </Badge>
               {/* Type */}
@@ -34,7 +43,7 @@ const MyReportCard = ({ post }: MyReportCardProps) => {
           <img
             src="https://placehold.co/350x200"
             alt=""
-            className="rounded-lg w-full"
+            className="rounded-lg w-full object-cover"
           />
           {/* Texts */}
           <div className="grid gap-2">
