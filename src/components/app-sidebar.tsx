@@ -1,12 +1,11 @@
 import * as React from "react";
 import {
-  BookOpen,
-  Bot,
+  Briefcase,
   Frame,
+  LayoutDashboard,
   Map,
+  PawPrint,
   PieChart,
-  Settings2,
-  SquareTerminal,
 } from "lucide-react";
 
 import { NavMain } from "@/components/nav-main";
@@ -27,87 +26,44 @@ const data = {
   },
   navMain: [
     {
-      title: "Playground",
+      title: "Main",
       url: "#",
-      icon: SquareTerminal,
+      icon: LayoutDashboard,
       isActive: true,
       items: [
         {
-          title: "History",
-          url: "#",
-        },
-        {
-          title: "Starred",
-          url: "#",
-        },
-        {
-          title: "Settings",
-          url: "#",
+          title: "Dashboard",
+          url: "/dashboard",
         },
       ],
     },
     {
-      title: "Models",
+      title: "Items",
       url: "#",
-      icon: Bot,
+      icon: Briefcase,
       items: [
         {
-          title: "Genesis",
-          url: "#",
+          title: "Lost",
+          url: "/lost-items",
         },
         {
-          title: "Explorer",
-          url: "#",
-        },
-        {
-          title: "Quantum",
-          url: "#",
+          title: "Found",
+          url: "/found-items",
         },
       ],
     },
     {
-      title: "Documentation",
+      title: "Pets",
       url: "#",
-      icon: BookOpen,
+      icon: PawPrint,
       items: [
         {
-          title: "Introduction",
-          url: "#",
+          title: "Lost",
+          url: "/lost-pets",
         },
         {
-          title: "Get Started",
-          url: "#",
-        },
-        {
-          title: "Tutorials",
-          url: "#",
-        },
-        {
-          title: "Changelog",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Settings",
-      url: "#",
-      icon: Settings2,
-      items: [
-        {
-          title: "General",
-          url: "#",
-        },
-        {
-          title: "Team",
-          url: "#",
-        },
-        {
-          title: "Billing",
-          url: "#",
-        },
-        {
-          title: "Limits",
-          url: "#",
+          title: "Found",
+          url: "/found-pets",
         },
       ],
     },
