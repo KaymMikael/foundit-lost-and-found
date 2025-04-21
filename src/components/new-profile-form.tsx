@@ -19,31 +19,11 @@ import {
   SelectTrigger,
   SelectValue,
 } from "./ui/select";
-
-const formSchema = z
-  .object({
-    firstName: z.string().nonempty({ message: "First name is required." }),
-    lastName: z.string().nonempty({ message: "Last name is required." }),
-    age: z.coerce.number().min(7, { message: "Age must be at least 7 years." }),
-    gender: z.enum(["male", "female"], {
-      message: "Please select a gender.",
-    }),
-    profilePicture: z
-      .any()
-      .refine(
-        (file) => file instanceof File && file.type.startsWith("image/"),
-        {
-          message: "Please upload a valid image file.",
-        }
-      ),
-  })
-  .refine((data) => data.profilePicture.size <= 5 * 1024 * 1024, {
-    message: "File size must not exceed 5 MB.",
-  });
+import { newProfileFormSchema } from "@/form-schemas/form-schema";
 
 const NewProfileForm = () => {
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const form = useForm<z.infer<typeof newProfileFormSchema>>({
+    resolver: zodResolver(newProfileFormSchema),
     defaultValues: {
       firstName: "",
       lastName: "",
@@ -51,7 +31,7 @@ const NewProfileForm = () => {
     },
   });
 
-  const onSubmit = (values: z.infer<typeof formSchema>) => {
+  const onSubmit = (values: z.infer<typeof newProfileFormSchema>) => {
     console.log(values);
   };
   return (
