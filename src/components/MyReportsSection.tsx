@@ -67,7 +67,7 @@ const lostPosts: Post[] = [
   {
     id: "lost-005",
     title: "Misplaced Backpack",
-    status: "resolved",
+    status: "found",
     description: "Gray backpack with school books and water bottle.",
     type: "lost",
     category: "item",
@@ -108,7 +108,7 @@ const lostPosts: Post[] = [
   {
     id: "lost-008",
     title: "Lost Toy Dog",
-    status: "resolved",
+    status: "found",
     description: "Brown stuffed toy left in jeepney.",
     type: "lost",
     category: "item",
@@ -167,7 +167,7 @@ const foundPosts: Post[] = [
   {
     id: "found-002",
     title: "Found Puppy",
-    status: "resolved",
+    status: "found",
     description: "Small brown puppy found roaming around.",
     type: "found",
     category: "pet",
@@ -264,7 +264,7 @@ const foundPosts: Post[] = [
   {
     id: "found-009",
     title: "Found Bag of Groceries",
-    status: "resolved",
+    status: "found",
     description: "Plastic bag with canned goods and vegetables.",
     type: "found",
     category: "item",
