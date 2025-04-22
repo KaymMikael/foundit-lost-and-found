@@ -50,3 +50,8 @@ export const newProfileFormSchema = z
   .refine((data) => data.profilePicture.size <= 5 * 1024 * 1024, {
     message: "File size must not exceed 5 MB.",
   });
+
+export const itemsPetsSearchSchema = z.object({
+  searchQuery: z.string().nonempty("Search input is empty"),
+  sortOrder: z.string(),
+});
