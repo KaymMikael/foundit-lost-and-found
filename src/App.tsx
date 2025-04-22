@@ -6,6 +6,7 @@ import NewProfilePage from "./pages/NewProfilePage";
 import MainPageLayout from "./components/main-page-layout";
 import DashboardPage from "./pages/DashboardPage";
 import SubmitReportPage from "./pages/SubmitReportPage";
+import LostItemsPage from "./pages/LostItemsPage";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
         <Route element={<MainPageLayout />}>
           <Route path="/dashboard" element={<DashboardPage />} />
           <Route path="/submit-report" element={<SubmitReportPage />} />
+          <Route path="/lost-items" element={<LostItemsPage />} />
         </Route>
       </Routes>
     </>
