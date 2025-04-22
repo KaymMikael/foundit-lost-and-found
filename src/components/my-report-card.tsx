@@ -1,8 +1,16 @@
-import { formatDistance } from "date-fns";
-import { EllipsisVertical } from "lucide-react";
+import { EllipsisVertical, Eye, SquarePen, Trash } from "lucide-react";
 import { Badge } from "./ui/badge";
 import { Card, CardContent } from "./ui/card";
 import { Post } from "@/types/index.type";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "./ui/dropdown-menu";
+import { getDistance } from "@/utils/date";
 
 interface MyReportCardProps {
   post: Post;
@@ -33,12 +41,33 @@ const MyReportCard = ({ post }: MyReportCardProps) => {
                 {post.type}
               </Badge>
             </div>
-            <EllipsisVertical
-              role="button"
-              aria-label="Report card settings"
-              className="cursor-pointer"
-              size={16}
-            />
+            {/* Report settings dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger>
+                <EllipsisVertical
+                  role="button"
+                  aria-label="Report card settings"
+                  className="cursor-pointer"
+                  size={16}
+                />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                <DropdownMenuLabel>Report Settings</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem>
+                  <SquarePen />
+                  Edit
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <Eye />
+                  View
+                </DropdownMenuItem>
+                <DropdownMenuItem variant="destructive">
+                  <Trash />
+                  Delete
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
           <img
             src="https://placehold.co/350x200"
@@ -51,10 +80,7 @@ const MyReportCard = ({ post }: MyReportCardProps) => {
             <p className="text-sm text-gray-400">
               <span className="capitalize">{post.category}</span> &bull;
               <span className="ms-1">
-                {`${formatDistance(
-                  new Date(post.createdAt),
-                  new Date().toISOString()
-                )} ago`}
+                {`${getDistance(post.createdAt, new Date())} ago`}
               </span>
             </p>
           </div>
