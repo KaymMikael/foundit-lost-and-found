@@ -21,7 +21,7 @@ const MyReportCard = ({ post }: MyReportCardProps) => {
                 className={`capitalize ${
                   post.status === "active"
                     ? "bg-[#0066ff]"
-                    : post.status === "found"
+                    : post.status === "reunited"
                     ? "bg-[#28a745]"
                     : "bg-[#978129]"
                 }`}

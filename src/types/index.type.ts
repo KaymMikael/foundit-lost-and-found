@@ -1,7 +1,7 @@
 export interface Post {
   id: string;
   title: string;
-  status: "active" | "reunited" | "found";
+  status: "active" | "reunited" | "resolved";
   description: string;
   type: "lost" | "found";
   category: "item" | "pet";
