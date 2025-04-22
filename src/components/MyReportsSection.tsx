@@ -2,6 +2,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import MyReportCard from "@/components/my-report-card";
 import { Input } from "@/components/ui/input";
 import { Post } from "@/types/index.type";
+import ReportsGridLayout from "./reports-grid-layout";
 
 const lostPosts: Post[] = [
   {
@@ -296,18 +297,18 @@ const MyReportsSection = () => {
           <TabsTrigger value="foundReports">Found Reports</TabsTrigger>
         </TabsList>
         <TabsContent value="lostReports">
-          <div className="grid gap-2 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
+          <ReportsGridLayout>
             {lostPosts.map((post) => (
               <MyReportCard post={post} key={post.id} />
             ))}
-          </div>
+          </ReportsGridLayout>
         </TabsContent>
         <TabsContent value="foundReports">
-          <div className="grid gap-2 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
+          <ReportsGridLayout>
             {foundPosts.map((post) => (
               <MyReportCard post={post} key={post.id} />
             ))}
-          </div>
+          </ReportsGridLayout>
         </TabsContent>
       </Tabs>
     </div>
