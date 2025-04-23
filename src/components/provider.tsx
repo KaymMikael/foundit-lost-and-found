@@ -1,6 +1,4 @@
-import config from "@/config/config";
 import { ThemeProvider } from "@/contexts/ThemeContext";
-import { GoogleOAuthProvider } from "@react-oauth/google";
 import React from "react";
 
 interface ProviderProps {
