@@ -1,9 +1,14 @@
 import { Post } from "@/types/index.type";
-import { createContext } from "react";
+import { createContext, useMemo, useState } from "react";
 
 interface MyReportsContextTypes {
   lostPosts: Post[];
+  setLostPosts: React.Dispatch<React.SetStateAction<Post[]>>;
   foundPosts: Post[];
+  setFoundPosts: React.Dispatch<React.SetStateAction<Post[]>>;
+  reportsCreatedTotal: number;
+  reunitedResolvedTotal: number;
+  activeReportsTotal: number;
 }
 
 export const MyReportsContext = createContext<
@@ -15,7 +20,7 @@ interface MyReportsProviderProps {
 }
 
 const MyReportsProvider = ({ children }: MyReportsProviderProps) => {
-  const foundPosts: Post[] = [
+  const [lostPosts, setLostPosts] = useState<Post[]>([
     {
       id: "1",
       title: "Found Mobile Phone",
@@ -316,9 +321,8 @@ const MyReportsProvider = ({ children }: MyReportsProviderProps) => {
       },
       createdAt: "2025-03-23T14:00:00.000Z",
     },
-  ];
-
-  const lostPosts: Post[] = [
+  ]);
+  const [foundPosts, setFoundPosts] = useState<Post[]>([
     {
       id: "1",
       title: "Lost Wallet",
@@ -619,10 +623,40 @@ const MyReportsProvider = ({ children }: MyReportsProviderProps) => {
       },
       createdAt: "2025-03-21T08:00:00.000Z",
     },
-  ];
+  ]);
+  const reportsCreatedTotal = useMemo(
+    () => lostPosts.length + foundPosts.length,
+    [lostPosts, foundPosts]
+  );
+  const reunitedResolvedTotal = useMemo(
+    () =>
+      lostPosts.filter(
+        (post) => post.status === "resolved" || post.status === "reunited"
+      ).length +
+      foundPosts.filter(
+        (post) => post.status === "resolved" || post.status === "reunited"
+      ).length,
+    [lostPosts, foundPosts]
+  );
+  const activeReportsTotal = useMemo(
+    () =>
+      lostPosts.filter((post) => post.status === "active").length +
+      foundPosts.filter((post) => post.status === "active").length,
+    [lostPosts, foundPosts]
+  );
 
   return (
-    <MyReportsContext.Provider value={{ foundPosts, lostPosts }}>
+    <MyReportsContext.Provider
+      value={{
+        foundPosts,
+        setFoundPosts,
+        setLostPosts,
+        lostPosts,
+        reportsCreatedTotal,
+        reunitedResolvedTotal,
+        activeReportsTotal,
+      }}
+    >
       {children}
     </MyReportsContext.Provider>
   );
