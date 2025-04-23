@@ -1,3 +1,4 @@
+import MyReportsProvider from "@/contexts/MyReportsContext";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import React from "react";
 
@@ -6,7 +7,11 @@ interface ProviderProps {
 }
 
 const Provider = ({ children }: ProviderProps) => {
-  return <ThemeProvider>{children}</ThemeProvider>;
+  return (
+    <ThemeProvider>
+      <MyReportsProvider>{children}</MyReportsProvider>
+    </ThemeProvider>
+  );
 };
 
 export default Provider;
