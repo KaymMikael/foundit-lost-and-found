@@ -1,5 +1,5 @@
 import MyReportsSection from "@/components/MyReportsSection";
-import QuickStatsSummary from "@/components/ui/quick-stats-summary";
+import QuickStatsSummary from "@/components/quick-stats-summary";
 
 const DashboardPage = () => {
   return (
