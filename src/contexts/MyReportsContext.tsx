@@ -20,7 +20,7 @@ interface MyReportsProviderProps {
 }
 
 const MyReportsProvider = ({ children }: MyReportsProviderProps) => {
-  const [lostPosts, setLostPosts] = useState<Post[]>([
+  const [foundPosts, setFoundPosts] = useState<Post[]>([
     {
       id: "1",
       title: "Found Mobile Phone",
@@ -322,7 +322,7 @@ const MyReportsProvider = ({ children }: MyReportsProviderProps) => {
       createdAt: "2025-03-23T14:00:00.000Z",
     },
   ]);
-  const [foundPosts, setFoundPosts] = useState<Post[]>([
+  const [lostPosts, setLostPosts] = useState<Post[]>([
     {
       id: "1",
       title: "Lost Wallet",
