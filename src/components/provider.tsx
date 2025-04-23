@@ -8,13 +8,7 @@ interface ProviderProps {
 }
 
 const Provider = ({ children }: ProviderProps) => {
-  return (
-    <ThemeProvider>
-      <GoogleOAuthProvider clientId={config.GOOGLE_CLIENT_ID}>
-        {children}
-      </GoogleOAuthProvider>
-    </ThemeProvider>
-  );
+  return <ThemeProvider>{children}</ThemeProvider>;
 };
 
 export default Provider;
