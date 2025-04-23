@@ -2,11 +2,12 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import MyReportCard from "@/components/my-report-card";
 import { Input } from "@/components/ui/input";
 import ReportsGridLayout from "./reports-grid-layout";
-import { foundPosts, lostPosts } from "@/data/my-reports";
 import { useState } from "react";
 import { Post } from "@/types/index.type";
+import useMyReports from "@/hooks/useMyReports";
 
 const MyReportsSection = () => {
+  const { foundPosts, lostPosts } = useMyReports();
   const [search, setSearch] = useState("");
 
   const filterPosts = (posts: Post[]) => {
