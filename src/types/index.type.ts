@@ -5,7 +5,7 @@ export interface Post {
   description: string;
   type: "lost" | "found";
   category: "item" | "pet";
-  dateLostFound: string;
+  dateLostFound: string; // iso string
   location: { latitude: number; longitude: number; place: string };
-  createdAt: string;
+  createdAt: string; // iso string
 }
