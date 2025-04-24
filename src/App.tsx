@@ -9,6 +9,7 @@ import SubmitReportPage from "./pages/SubmitReportPage";
 import LostItemsPage from "./pages/LostItemsPage";
 import FoundItemsPage from "./pages/FoundItemsPage";
 import LostPetsPage from "./pages/LostPetsPage";
+import FoundPetsPage from "./pages/FoundPetsPage";
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
           <Route path="/lost-items" element={<LostItemsPage />} />
           <Route path="/found-items" element={<FoundItemsPage />} />
           <Route path="/lost-pets" element={<LostPetsPage />} />
+          <Route path="/found-pets" element={<FoundPetsPage />} />
         </Route>
       </Routes>
     </>
