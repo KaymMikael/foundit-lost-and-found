@@ -52,6 +52,6 @@ export const newProfileFormSchema = z
   });
 
 export const itemsPetsSearchSchema = z.object({
-  searchQuery: z.string().nonempty("Search input is empty"),
+  searchQuery: z.string(),
   sortOrder: z.string(),
 });
