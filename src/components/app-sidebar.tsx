@@ -22,7 +22,6 @@ const data = {
       title: "Main",
       url: "#",
       icon: LayoutDashboard,
-      isActive: true,
       items: [
         {
           title: "Dashboard",
