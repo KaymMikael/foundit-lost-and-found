@@ -21,10 +21,10 @@ const FoundItemsPage = () => {
 
   return (
     <div className="max-w-7xl 2xl:mx-auto flex flex-col gap-4">
-      <h2 className="text-2xl font-semibold">Lost Items</h2>
+      <h2 className="text-2xl font-semibold">Found Items</h2>
       {/* Search bar */}
       <ItemsPetsSearchBar onSearch={handleSearch} />
-      {/* Lost items grid */}
+      {/* Found items grid */}
       <ReportsGridLayout>
         {loading ? (
           // Show skeletons while loading
