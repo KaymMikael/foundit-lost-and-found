@@ -1,5 +1,6 @@
 import { Post } from "@/types/index.type";
 import { createContext, useMemo, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 interface MyReportsContextTypes {
   lostPosts: Post[];
@@ -22,7 +23,7 @@ interface MyReportsProviderProps {
 const MyReportsProvider = ({ children }: MyReportsProviderProps) => {
   const [foundPosts, setFoundPosts] = useState<Post[]>([
     {
-      id: "1",
+      id: uuidv4(),
       title: "Found Mobile Phone",
       status: "active",
       description: "Found iPhone near barangay hall.",
@@ -37,7 +38,7 @@ const MyReportsProvider = ({ children }: MyReportsProviderProps) => {
       createdAt: "2025-04-11T09:00:00.000Z",
     },
     {
-      id: "2",
+      id: uuidv4(),
       title: "Found Dog",
       status: "active",
       description: "Brown dog with red collar found wandering.",
@@ -52,7 +53,7 @@ const MyReportsProvider = ({ children }: MyReportsProviderProps) => {
       createdAt: "2025-04-10T08:45:00.000Z",
     },
     {
-      id: "3",
+      id: uuidv4(),
       title: "Found Wallet",
       status: "resolved",
       description: "Leather wallet with school ID.",
@@ -67,7 +68,7 @@ const MyReportsProvider = ({ children }: MyReportsProviderProps) => {
       createdAt: "2025-04-09T10:00:00.000Z",
     },
     {
-      id: "4",
+      id: uuidv4(),
       title: "Found Cat",
       status: "active",
       description: "Orange cat seen near sari-sari store.",
@@ -82,7 +83,7 @@ const MyReportsProvider = ({ children }: MyReportsProviderProps) => {
       createdAt: "2025-04-08T11:00:00.000Z",
     },
     {
-      id: "5",
+      id: uuidv4(),
       title: "Found Backpack",
       status: "active",
       description: "Blue bag left on bench.",
@@ -97,7 +98,7 @@ const MyReportsProvider = ({ children }: MyReportsProviderProps) => {
       createdAt: "2025-04-07T09:20:00.000Z",
     },
     {
-      id: "6",
+      id: uuidv4(),
       title: "Found Keys",
       status: "reunited",
       description: "Bunch of keys with green tag.",
@@ -112,7 +113,7 @@ const MyReportsProvider = ({ children }: MyReportsProviderProps) => {
       createdAt: "2025-04-06T10:30:00.000Z",
     },
     {
-      id: "7",
+      id: uuidv4(),
       title: "Found Hamster",
       status: "active",
       description: "Small white hamster seen on road.",
@@ -127,7 +128,7 @@ const MyReportsProvider = ({ children }: MyReportsProviderProps) => {
       createdAt: "2025-04-05T08:15:00.000Z",
     },
     {
-      id: "8",
+      id: uuidv4(),
       title: "Found Watch",
       status: "active",
       description: "Silver analog watch found near plaza.",
@@ -142,7 +143,7 @@ const MyReportsProvider = ({ children }: MyReportsProviderProps) => {
       createdAt: "2025-04-04T12:00:00.000Z",
     },
     {
-      id: "9",
+      id: uuidv4(),
       title: "Found Puppy",
       status: "active",
       description: "White puppy with black patch on eye.",
@@ -157,7 +158,7 @@ const MyReportsProvider = ({ children }: MyReportsProviderProps) => {
       createdAt: "2025-04-03T07:45:00.000Z",
     },
     {
-      id: "10",
+      id: uuidv4(),
       title: "Found Umbrella",
       status: "active",
       description: "Purple umbrella found in tricycle.",
@@ -172,7 +173,7 @@ const MyReportsProvider = ({ children }: MyReportsProviderProps) => {
       createdAt: "2025-04-02T10:10:00.000Z",
     },
     {
-      id: "11",
+      id: uuidv4(),
       title: "Found Earphones",
       status: "resolved",
       description: "Bluetooth earphones found in school gym.",
@@ -187,7 +188,7 @@ const MyReportsProvider = ({ children }: MyReportsProviderProps) => {
       createdAt: "2025-04-01T08:00:00.000Z",
     },
     {
-      id: "12",
+      id: uuidv4(),
       title: "Found Cat Collar",
       status: "active",
       description: "Pink collar with bell found on sidewalk.",
@@ -202,7 +203,7 @@ const MyReportsProvider = ({ children }: MyReportsProviderProps) => {
       createdAt: "2025-03-31T13:00:00.000Z",
     },
     {
-      id: "13",
+      id: uuidv4(),
       title: "Found Pet Parrot",
       status: "reunited",
       description: "Green parrot found near mango tree.",
@@ -217,7 +218,7 @@ const MyReportsProvider = ({ children }: MyReportsProviderProps) => {
       createdAt: "2025-03-30T11:20:00.000Z",
     },
     {
-      id: "14",
+      id: uuidv4(),
       title: "Found Book",
       status: "active",
       description: "Science book labeled 'Grade 10'.",
@@ -247,7 +248,7 @@ const MyReportsProvider = ({ children }: MyReportsProviderProps) => {
       createdAt: "2025-03-28T10:30:00.000Z",
     },
     {
-      id: "16",
+      id: uuidv4(),
       title: "Found Chihuahua",
       status: "resolved",
       description: "White chihuahua, no tag.",
@@ -262,7 +263,7 @@ const MyReportsProvider = ({ children }: MyReportsProviderProps) => {
       createdAt: "2025-03-27T12:00:00.000Z",
     },
     {
-      id: "17",
+      id: uuidv4(),
       title: "Found Water Bottle",
       status: "active",
       description: "Black insulated bottle, left at chapel.",
@@ -277,7 +278,7 @@ const MyReportsProvider = ({ children }: MyReportsProviderProps) => {
       createdAt: "2025-03-26T09:00:00.000Z",
     },
     {
-      id: "18",
+      id: uuidv4(),
       title: "Found Drawing Pad",
       status: "active",
       description: "Sketch pad with pencil drawings.",
@@ -292,7 +293,7 @@ const MyReportsProvider = ({ children }: MyReportsProviderProps) => {
       createdAt: "2025-03-25T08:15:00.000Z",
     },
     {
-      id: "19",
+      id: uuidv4(),
       title: "Found Student ID",
       status: "active",
       description: "MNHS ID with name still visible.",
@@ -307,7 +308,7 @@ const MyReportsProvider = ({ children }: MyReportsProviderProps) => {
       createdAt: "2025-03-24T11:00:00.000Z",
     },
     {
-      id: "20",
+      id: uuidv4(),
       title: "Found Pet Collar",
       status: "active",
       description: "Blue collar with tiny bell, found near school.",
@@ -324,7 +325,7 @@ const MyReportsProvider = ({ children }: MyReportsProviderProps) => {
   ]);
   const [lostPosts, setLostPosts] = useState<Post[]>([
     {
-      id: "1",
+      id: uuidv4(),
       title: "Lost Wallet",
       status: "active",
       description: "Black leather wallet with IDs and cash.",
@@ -339,7 +340,7 @@ const MyReportsProvider = ({ children }: MyReportsProviderProps) => {
       createdAt: "2025-04-11T08:00:00.000Z",
     },
     {
-      id: "2",
+      id: uuidv4(),
       title: "Missing Shih Tzu",
       status: "active",
       description: "White Shih Tzu with blue collar. Very friendly.",
@@ -354,7 +355,7 @@ const MyReportsProvider = ({ children }: MyReportsProviderProps) => {
       createdAt: "2025-04-10T09:15:00.000Z",
     },
     {
-      id: "3",
+      id: uuidv4(),
       title: "Lost Keys",
       status: "resolved",
       description: "Set of car and house keys with red keychain.",
@@ -369,7 +370,7 @@ const MyReportsProvider = ({ children }: MyReportsProviderProps) => {
       createdAt: "2025-04-09T12:30:00.000Z",
     },
     {
-      id: "4",
+      id: uuidv4(),
       title: "Lost Cat",
       status: "active",
       description: "Orange tabby cat, answers to 'Ming'.",
@@ -384,7 +385,7 @@ const MyReportsProvider = ({ children }: MyReportsProviderProps) => {
       createdAt: "2025-04-08T11:00:00.000Z",
     },
     {
-      id: "5",
+      id: uuidv4(),
       title: "Lost Phone",
       status: "active",
       description: "Samsung Galaxy S22 in a green case.",
@@ -399,7 +400,7 @@ const MyReportsProvider = ({ children }: MyReportsProviderProps) => {
       createdAt: "2025-04-07T08:45:00.000Z",
     },
     {
-      id: "6",
+      id: uuidv4(),
       title: "Lost Dog",
       status: "reunited",
       description: "Black Labrador, wearing a red harness.",
@@ -414,7 +415,7 @@ const MyReportsProvider = ({ children }: MyReportsProviderProps) => {
       createdAt: "2025-04-06T10:00:00.000Z",
     },
     {
-      id: "7",
+      id: uuidv4(),
       title: "Lost Watch",
       status: "active",
       description: "Silver Seiko watch left at tricycle terminal.",
@@ -429,7 +430,7 @@ const MyReportsProvider = ({ children }: MyReportsProviderProps) => {
       createdAt: "2025-04-04T09:30:00.000Z",
     },
     {
-      id: "8",
+      id: uuidv4(),
       title: "Lost Puppy",
       status: "active",
       description: "Small brown puppy lost near public market.",
@@ -444,7 +445,7 @@ const MyReportsProvider = ({ children }: MyReportsProviderProps) => {
       createdAt: "2025-04-03T07:20:00.000Z",
     },
     {
-      id: "9",
+      id: uuidv4(),
       title: "Lost Backpack",
       status: "resolved",
       description: "Blue Jansport with school books and charger.",
@@ -459,7 +460,7 @@ const MyReportsProvider = ({ children }: MyReportsProviderProps) => {
       createdAt: "2025-04-02T08:00:00.000Z",
     },
     {
-      id: "10",
+      id: uuidv4(),
       title: "Lost Earrings",
       status: "active",
       description: "Pair of pearl earrings lost at plaza.",
@@ -534,7 +535,7 @@ const MyReportsProvider = ({ children }: MyReportsProviderProps) => {
       createdAt: "2025-03-27T12:00:00.000Z",
     },
     {
-      id: "15",
+      id: uuidv4(),
       title: "Lost USB Drive",
       status: "active",
       description: "8GB Kingston USB with thesis files.",
@@ -549,7 +550,7 @@ const MyReportsProvider = ({ children }: MyReportsProviderProps) => {
       createdAt: "2025-03-26T08:00:00.000Z",
     },
     {
-      id: "16",
+      id: uuidv4(),
       title: "Lost Birth Certificate",
       status: "resolved",
       description: "Original birth certificate inside brown envelope.",
@@ -564,7 +565,7 @@ const MyReportsProvider = ({ children }: MyReportsProviderProps) => {
       createdAt: "2025-03-25T11:30:00.000Z",
     },
     {
-      id: "17",
+      id: uuidv4(),
       title: "Lost Glasses",
       status: "active",
       description: "Black-rimmed prescription glasses.",
@@ -579,7 +580,7 @@ const MyReportsProvider = ({ children }: MyReportsProviderProps) => {
       createdAt: "2025-03-24T07:00:00.000Z",
     },
     {
-      id: "18",
+      id: uuidv4(),
       title: "Lost Slippers",
       status: "active",
       description: "Blue Havaianas slippers left at chapel.",
@@ -594,7 +595,7 @@ const MyReportsProvider = ({ children }: MyReportsProviderProps) => {
       createdAt: "2025-03-23T10:00:00.000Z",
     },
     {
-      id: "19",
+      id: uuidv4(),
       title: "Lost Math Notebook",
       status: "active",
       description: "Yellow notebook with calculus notes.",
@@ -609,7 +610,7 @@ const MyReportsProvider = ({ children }: MyReportsProviderProps) => {
       createdAt: "2025-03-22T09:30:00.000Z",
     },
     {
-      id: "20",
+      id: uuidv4(),
       title: "Lost Pet Parrot",
       status: "active",
       description: "Green parrot named 'Polly', can say 'Hello'.",
