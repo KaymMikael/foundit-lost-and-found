@@ -1,3 +1,4 @@
+import { mataasnakahoyBarangays } from "@/data/data";
 import { UserPost } from "@/types/index.type";
 import { createContext, useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
@@ -88,14 +89,7 @@ const ItemsReportsProvider = ({ children }: ItemsReportsProviderProps) => {
           location: {
             latitude: 13.9476 + Math.random() * 0.01,
             longitude: 121.1194 + Math.random() * 0.01,
-            place: [
-              "Poblacion, Mataasnakahoy",
-              "Barangay 2, Mataasnakahoy",
-              "San Sebastian, Mataasnakahoy",
-              "Barangay 4, Mataasnakahoy",
-              "Barangay 1, Mataasnakahoy",
-              "Bayorbor, Mataasnakahoy",
-            ][Math.floor(Math.random() * 6)],
+            place: mataasnakahoyBarangays[Math.floor(Math.random() * 6)],
           },
         },
       }));
@@ -125,19 +119,12 @@ const ItemsReportsProvider = ({ children }: ItemsReportsProviderProps) => {
           location: {
             latitude: 13.9476 + Math.random() * 0.01,
             longitude: 121.1194 + Math.random() * 0.01,
-            place: [
-              "Poblacion, Mataasnakahoy",
-              "Barangay 2, Mataasnakahoy",
-              "San Sebastian, Mataasnakahoy",
-              "Barangay 4, Mataasnakahoy",
-              "Barangay 1, Mataasnakahoy",
-              "Bayorbor, Mataasnakahoy",
-            ][Math.floor(Math.random() * 6)],
+            place: mataasnakahoyBarangays[Math.floor(Math.random() * 6)],
           },
         },
       }));
       setLostItemsReports(data);
-      setFoundItemsReports(data2)
+      setFoundItemsReports(data2);
       setLoading(false);
     }, 1500);
   }, []);
