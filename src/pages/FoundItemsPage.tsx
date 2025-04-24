@@ -2,20 +2,23 @@ import ItemsPetsSearchBar from "@/components/items-pets-search-bar";
 import PostReportCard from "@/components/PostReportCard";
 import ReportsGridLayout from "@/components/reports-grid-layout";
 import ReportsGridSkeleton from "@/components/reports-grid-skeleton";
-import useItemsReports from "@/hooks/useItemsReports";
+import useReports from "@/hooks/useReports";
 import useSearch from "@/hooks/useSearch";
 
 const FoundItemsPage = () => {
-  const { foundItemsReports, loading } = useItemsReports();
+  const { posts, loading } = useReports();
   const { searchQuery, sortOrder, handleSearch } = useSearch();
 
-  const filteredReports = foundItemsReports
-  .filter(
-    ({ post }) =>
-      post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      post.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      post.location.place.toLowerCase().includes(searchQuery.toLowerCase())
-  )
+  const filteredReports = posts
+    .filter(
+      ({ post }) =>
+        (post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          post.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          post.location.place
+            .toLowerCase()
+            .includes(searchQuery.toLowerCase())) &&
+        post.type === "found"
+    )
     .sort((a, b) => {
       const dateA = new Date(a.post.createdAt).getTime();
       const dateB = new Date(b.post.createdAt).getTime();

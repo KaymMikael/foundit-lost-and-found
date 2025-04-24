@@ -2,19 +2,22 @@ import ItemsPetsSearchBar from "@/components/items-pets-search-bar";
 import PostReportCard from "@/components/PostReportCard";
 import ReportsGridLayout from "@/components/reports-grid-layout";
 import ReportsGridSkeleton from "@/components/reports-grid-skeleton";
-import useItemsReports from "@/hooks/useItemsReports";
+import useReports from "@/hooks/useReports";
 import useSearch from "@/hooks/useSearch";
 
 const LostItemsPage = () => {
-  const { lostItemsReports, loading } = useItemsReports();
+  const { loading, posts } = useReports();
   const { searchQuery, sortOrder, handleSearch } = useSearch();
 
-  const filteredReports = lostItemsReports
+  const filteredReports = posts
     .filter(
       ({ post }) =>
-        post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        post.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        post.location.place.toLowerCase().includes(searchQuery.toLowerCase())
+        (post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          post.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          post.location.place
+            .toLowerCase()
+            .includes(searchQuery.toLowerCase())) &&
+        post.type === "lost"
     )
     .sort((a, b) => {
       const dateA = new Date(a.post.createdAt).getTime();
