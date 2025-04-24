@@ -1,6 +1,4 @@
-import ItemsReportsProvider from "@/contexts/ItemsReportsContext";
 import MyReportsProvider from "@/contexts/MyReportsContext";
-import PetsReportsProvider from "@/contexts/PetsReportsContext";
 import ReportsProvider from "@/contexts/ReportsContext";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import UserProvider from "@/contexts/UserContext";
@@ -15,11 +13,7 @@ const Provider = ({ children }: ProviderProps) => {
     <ThemeProvider>
       <UserProvider>
         <ReportsProvider>
-          <MyReportsProvider>
-            <ItemsReportsProvider>
-              <PetsReportsProvider>{children}</PetsReportsProvider>
-            </ItemsReportsProvider>
-          </MyReportsProvider>
+          <MyReportsProvider>{children}</MyReportsProvider>
         </ReportsProvider>
       </UserProvider>
     </ThemeProvider>
