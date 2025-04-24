@@ -1,12 +1,5 @@
 import * as React from "react";
-import {
-  Briefcase,
-  Frame,
-  LayoutDashboard,
-  Map,
-  PawPrint,
-  PieChart,
-} from "lucide-react";
+import { Briefcase, LayoutDashboard, PawPrint } from "lucide-react";
 
 import { NavMain } from "@/components/nav-main";
 import { NavUser } from "@/components/nav-user";
@@ -20,8 +13,8 @@ import {
 // This is sample data.
 const data = {
   user: {
-    name: "shadcn",
-    email: "m@example.com",
+    name: "User",
+    email: "user@example.com",
     avatar: "/avatars/shadcn.jpg",
   },
   navMain: [
@@ -66,23 +59,6 @@ const data = {
           url: "/found-pets",
         },
       ],
-    },
-  ],
-  projects: [
-    {
-      name: "Design Engineering",
-      url: "#",
-      icon: Frame,
-    },
-    {
-      name: "Sales & Marketing",
-      url: "#",
-      icon: PieChart,
-    },
-    {
-      name: "Travel",
-      url: "#",
-      icon: Map,
     },
   ],
 };
