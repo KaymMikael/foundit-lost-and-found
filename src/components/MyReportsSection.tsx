@@ -1,10 +1,9 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import MyReportCard from "@/components/my-report-card";
 import { Input } from "@/components/ui/input";
-import ReportsGridLayout from "./reports-grid-layout";
 import { useState } from "react";
 import { Post } from "@/types/index.type";
 import useMyReports from "@/hooks/useMyReports";
+import MyReportsGrid from "./MyReportsGrid";
 
 const MyReportsSection = () => {
   const { foundPosts, lostPosts } = useMyReports();
@@ -39,26 +38,10 @@ const MyReportsSection = () => {
           <TabsTrigger value="foundReports">Found Reports</TabsTrigger>
         </TabsList>
         <TabsContent value="lostReports">
-          <ReportsGridLayout>
-            {filteredLost.length ? (
-              filteredLost.map((post) => (
-                <MyReportCard post={post} key={post.id} />
-              ))
-            ) : (
-              <p className="mt-2 text-gray-400">You don't have any reports</p>
-            )}
-          </ReportsGridLayout>
+          <MyReportsGrid posts={filteredLost} search={search} />
         </TabsContent>
         <TabsContent value="foundReports">
-          <ReportsGridLayout>
-            {filteredFound.length ? (
-              filteredFound.map((post) => (
-                <MyReportCard post={post} key={post.id} />
-              ))
-            ) : (
-              <p className="mt-2 text-gray-400">You don't have any reports</p>
-            )}
-          </ReportsGridLayout>
+          <MyReportsGrid posts={filteredFound} search={search} />
         </TabsContent>
       </Tabs>
     </div>
