@@ -3,6 +3,7 @@ import PageLayout from "@/components/page-layout";
 import { Button } from "@/components/ui/button";
 import TeamCollaboration from "@/assets/images/TeamCollaboration.svg";
 import IdeasFlow from "@/assets/images/IdeasFlow.svg";
+import { useNavigate } from "react-router";
 
 const featureItems = [
   {
@@ -38,6 +39,11 @@ const featureItems = [
 ];
 
 const HomePage = () => {
+  const navigate = useNavigate();
+
+  const handleGetStartedClick = () => {
+    navigate("/login");
+  };
   return (
     <PageLayout>
       <PageHeader activePath="/" />
@@ -53,7 +59,11 @@ const HomePage = () => {
           pets in MataasNaKahoy, Batangas.
         </p>
         <div className="flex justify-center mt-8">
-          <Button className="cursor-pointer" size={"lg"}>
+          <Button
+            className="cursor-pointer"
+            size={"lg"}
+            onClick={handleGetStartedClick}
+          >
             Get Started
           </Button>
         </div>
