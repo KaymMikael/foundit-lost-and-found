@@ -1,3 +1,4 @@
+import ItemsReportsProvider from "@/contexts/ItemsReportsContext";
 import MyReportsProvider from "@/contexts/MyReportsContext";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import React from "react";
@@ -9,7 +10,9 @@ interface ProviderProps {
 const Provider = ({ children }: ProviderProps) => {
   return (
     <ThemeProvider>
-      <MyReportsProvider>{children}</MyReportsProvider>
+      <MyReportsProvider>
+        <ItemsReportsProvider>{children}</ItemsReportsProvider>
+      </MyReportsProvider>
     </ThemeProvider>
   );
 };
