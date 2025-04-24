@@ -22,44 +22,7 @@ interface ItemsReportsProviderProps {
 const ItemsReportsProvider = ({ children }: ItemsReportsProviderProps) => {
   const [loading, setLoading] = useState(true);
   const [lostItemsReports, setLostItemsReports] = useState<UserPost[]>([]);
-  const [foundItemsReports, setFoundItemsReports] = useState<UserPost[]>(
-    Array.from({ length: 20 }).map((_, i) => ({
-      user: {
-        id: uuidv4(),
-        firstName: `User${i + 1}`,
-        lastName: `Lastname${i + 1}`,
-        email: `user${i + 1}@example.com`,
-      },
-      post: {
-        id: uuidv4(),
-        title: `Lost Item ${i + 1}`,
-        status: ["active", "resolved"][Math.floor(Math.random() * 2)] as
-          | "active"
-          | "resolved",
-        description: `Description for lost item ${i + 1}`,
-        type: "lost",
-        category: "item",
-        dateLostFound: new Date(
-          Date.now() - Math.floor(Math.random() * 30 * 24 * 60 * 60 * 1000)
-        ).toISOString(),
-        createdAt: new Date(
-          Date.now() - Math.floor(Math.random() * 30 * 24 * 60 * 60 * 1000)
-        ).toISOString(),
-        location: {
-          latitude: 13.9476 + Math.random() * 0.01,
-          longitude: 121.1194 + Math.random() * 0.01,
-          place: [
-            "Poblacion, Mataasnakahoy",
-            "Barangay 2, Mataasnakahoy",
-            "San Sebastian, Mataasnakahoy",
-            "Barangay 4, Mataasnakahoy",
-            "Barangay 1, Mataasnakahoy",
-            "Bayorbor, Mataasnakahoy",
-          ][Math.floor(Math.random() * 6)],
-        },
-      },
-    }))
-  );
+  const [foundItemsReports, setFoundItemsReports] = useState<UserPost[]>([]);
 
   useEffect(() => {
     setTimeout(() => {
