@@ -10,8 +10,11 @@ const LostPetsPage = () => {
   const { searchQuery, sortOrder, handleSearch } = useSearch();
 
   const filteredReports = lostPetsReports
-    .filter(({ post }) =>
-      post.title.toLowerCase().includes(searchQuery.toLowerCase())
+    .filter(
+      ({ post }) =>
+        post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        post.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        post.location.place.toLowerCase().includes(searchQuery.toLowerCase())
     )
     .sort((a, b) => {
       const dateA = new Date(a.post.createdAt).getTime();
