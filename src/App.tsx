@@ -8,6 +8,7 @@ import DashboardPage from "./pages/DashboardPage";
 import SubmitReportPage from "./pages/SubmitReportPage";
 import LostItemsPage from "./pages/LostItemsPage";
 import FoundItemsPage from "./pages/FoundItemsPage";
+import LostPetsPage from "./pages/LostPetsPage";
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
           <Route path="/submit-report" element={<SubmitReportPage />} />
           <Route path="/lost-items" element={<LostItemsPage />} />
           <Route path="/found-items" element={<FoundItemsPage />} />
+          <Route path="/lost-pets" element={<LostPetsPage />} />
         </Route>
       </Routes>
     </>
