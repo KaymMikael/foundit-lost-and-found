@@ -1,12 +1,12 @@
 import ItemsPetsSearchBar from "@/components/items-pets-search-bar";
 import PostReportCard from "@/components/PostReportCard";
 import ReportsGridLayout from "@/components/reports-grid-layout";
-import { Skeleton } from "@/components/ui/skeleton";
+import ReportsGridSkeleton from "@/components/reports-grid-skeleton";
 import useItemsReports from "@/hooks/useItemsReports";
 import useSearch from "@/hooks/useSearch";
 
 const LostItemsPage = () => {
-  const { lostItemsReports,loading } = useItemsReports();
+  const { lostItemsReports, loading } = useItemsReports();
   const { searchQuery, sortOrder, handleSearch } = useSearch();
 
   const filteredReports = lostItemsReports
@@ -28,13 +28,7 @@ const LostItemsPage = () => {
       <ReportsGridLayout>
         {loading ? (
           // Show skeletons while loading
-          Array.from({ length: 6 }).map((_, idx) => (
-            <div key={idx} className="space-y-4">
-              <Skeleton className="h-40 w-full rounded-xl" />
-              <Skeleton className="h-4 w-2/3" />
-              <Skeleton className="h-4 w-1/2" />
-            </div>
-          ))
+          <ReportsGridSkeleton />
         ) : filteredReports.length ? (
           filteredReports.map((data) => (
             <PostReportCard userPost={data} key={data.post.id} />
