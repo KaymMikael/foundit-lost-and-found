@@ -3,12 +3,10 @@ import { Input } from "@/components/ui/input";
 import { UserPost } from "@/types/index.type";
 import MyReportsGrid from "./MyReportsGrid";
 import useSearch from "@/hooks/useSearch";
-import useReports from "@/hooks/useReports";
-import useUser from "@/hooks/useUser";
+import useMyReports from "@/hooks/useMyReports";
 
 const MyReportsSection = () => {
-  const { user: userData } = useUser();
-  const { posts } = useReports();
+  const { myPosts } = useMyReports();
   const { searchQuery, setSearchQuery } = useSearch();
 
   const filterPosts = (userPost: UserPost[]) => {
@@ -18,16 +16,15 @@ const MyReportsSection = () => {
       (user) =>
         user.post.title.toLowerCase().includes(term) ||
         user.post.description.toLowerCase().includes(term) ||
-        (user.post.location.place.toLowerCase().includes(term) &&
-          user.user.id === userData.id)
+        user.post.location.place.toLowerCase().includes(term)
     );
   };
 
   const lostReports = filterPosts(
-    posts.filter((post) => post.post.type === "lost")
+    myPosts.filter((post) => post.post.type === "lost")
   );
   const foundReports = filterPosts(
-    posts.filter((post) => post.post.type === "found")
+    myPosts.filter((post) => post.post.type === "found")
   );
 
   return (
