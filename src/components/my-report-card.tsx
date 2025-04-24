@@ -11,12 +11,19 @@ import {
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 import { getDistance } from "@/utils/date";
+import { useNavigate } from "react-router";
 
 interface MyReportCardProps {
   post: Post;
 }
 
 const MyReportCard = ({ post }: MyReportCardProps) => {
+  const navigate = useNavigate();
+
+  const handleViewClick = (postId: string) => {
+    navigate(`/report/${postId}`);
+  };
+
   return (
     <Card>
       <CardContent>
@@ -58,7 +65,7 @@ const MyReportCard = ({ post }: MyReportCardProps) => {
                   <SquarePen />
                   Edit
                 </DropdownMenuItem>
-                <DropdownMenuItem>
+                <DropdownMenuItem onClick={() => handleViewClick(post.id)}>
                   <Eye />
                   View
                 </DropdownMenuItem>
