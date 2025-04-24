@@ -1,0 +1,18 @@
+export const mataasnakahoyBarangays = [
+  "Barangay I (Bontog), Mataasnakahoy",
+  "Barangay II (Parang), Mataasnakahoy",
+  "Barangay II-A (Poblacion), Mataasnakahoy",
+  "Barangay III (Longos), Mataasnakahoy",
+  "Barangay IV, Mataasnakahoy",
+  "Bayorbor, Mataasnakahoy",
+  "Bubuyan, Mataasnakahoy",
+  "Calingatan, Mataasnakahoy",
+  "Kinalaglagan, Mataasnakahoy",
+  "Loob, Mataasnakahoy",
+  "Lumang Lipa, Mataasnakahoy",
+  "Manggahan, Mataasnakahoy",
+  "Nangkaan, Mataasnakahoy",
+  "San Sebastian, Mataasnakahoy",
+  "Santol, Mataasnakahoy",
+  "Upa, Mataasnakahoy",
+];
