@@ -1,16 +1,16 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Input } from "@/components/ui/input";
-import { useState } from "react";
 import { Post } from "@/types/index.type";
 import useMyReports from "@/hooks/useMyReports";
 import MyReportsGrid from "./MyReportsGrid";
+import useSearch from "@/hooks/useSearch";
 
 const MyReportsSection = () => {
   const { foundPosts, lostPosts } = useMyReports();
-  const [search, setSearch] = useState("");
+  const { searchQuery, setSearchQuery } = useSearch();
 
   const filterPosts = (posts: Post[]) => {
-    const term = search.toLowerCase();
+    const term = searchQuery.toLowerCase();
 
     return posts.filter(
       (post) =>
@@ -29,8 +29,8 @@ const MyReportsSection = () => {
       <Input
         placeholder="Search..."
         className="mt-2 max-w-[248px]"
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
       />
       <Tabs defaultValue="lostReports">
         <TabsList className="grid max-w-2xs w-full grid-cols-2 my-2">
@@ -38,10 +38,10 @@ const MyReportsSection = () => {
           <TabsTrigger value="foundReports">Found Reports</TabsTrigger>
         </TabsList>
         <TabsContent value="lostReports">
-          <MyReportsGrid posts={filteredLost} search={search} />
+          <MyReportsGrid posts={filteredLost} search={searchQuery} />
         </TabsContent>
         <TabsContent value="foundReports">
-          <MyReportsGrid posts={filteredFound} search={search} />
+          <MyReportsGrid posts={filteredFound} search={searchQuery} />
         </TabsContent>
       </Tabs>
     </div>
