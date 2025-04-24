@@ -20,7 +20,11 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 
-const ItemsPetsSearchBar = () => {
+interface ItemsPetsSearchBarProps {
+  onSearch: (filters: { searchQuery: string; sortOrder: string }) => void;
+}
+
+const ItemsPetsSearchBar = ({ onSearch }: ItemsPetsSearchBarProps) => {
   const form = useForm<z.infer<typeof itemsPetsSearchSchema>>({
     resolver: zodResolver(itemsPetsSearchSchema),
     defaultValues: {
@@ -30,7 +34,7 @@ const ItemsPetsSearchBar = () => {
   });
 
   const onSubmit = (values: z.infer<typeof itemsPetsSearchSchema>) => {
-    console.log("Search Data:", values);
+    onSearch(values); // Send data to parent
   };
 
   return (
