@@ -16,7 +16,7 @@ const LoginPage = () => {
     // redirect to dashboard after 3 seconds
     setTimeout(() => {
       navigate("/dashboard");
-    }, 1000 * 3);
+    }, 3000);
   };
 
   return (
