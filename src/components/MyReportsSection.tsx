@@ -1,27 +1,34 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Input } from "@/components/ui/input";
-import { Post } from "@/types/index.type";
-import useMyReports from "@/hooks/useMyReports";
+import { UserPost } from "@/types/index.type";
 import MyReportsGrid from "./MyReportsGrid";
 import useSearch from "@/hooks/useSearch";
+import useReports from "@/hooks/useReports";
+import useUser from "@/hooks/useUser";
 
 const MyReportsSection = () => {
-  const { foundPosts, lostPosts } = useMyReports();
+  const { user: userData } = useUser();
+  const { posts } = useReports();
   const { searchQuery, setSearchQuery } = useSearch();
 
-  const filterPosts = (posts: Post[]) => {
+  const filterPosts = (userPost: UserPost[]) => {
     const term = searchQuery.toLowerCase();
 
-    return posts.filter(
-      (post) =>
-        post.title.toLowerCase().includes(term) ||
-        post.description.toLowerCase().includes(term) ||
-        post.location.place.toLowerCase().includes(term)
+    return userPost.filter(
+      (user) =>
+        user.post.title.toLowerCase().includes(term) ||
+        user.post.description.toLowerCase().includes(term) ||
+        (user.post.location.place.toLowerCase().includes(term) &&
+          user.user.id === userData.id)
     );
   };
 
-  const filteredLost = filterPosts(lostPosts);
-  const filteredFound = filterPosts(foundPosts);
+  const lostReports = filterPosts(
+    posts.filter((post) => post.post.type === "lost")
+  );
+  const foundReports = filterPosts(
+    posts.filter((post) => post.post.type === "found")
+  );
 
   return (
     <div>
@@ -38,10 +45,10 @@ const MyReportsSection = () => {
           <TabsTrigger value="foundReports">Found Reports</TabsTrigger>
         </TabsList>
         <TabsContent value="lostReports">
-          <MyReportsGrid posts={filteredLost} search={searchQuery} />
+          <MyReportsGrid posts={lostReports} search={searchQuery} />
         </TabsContent>
         <TabsContent value="foundReports">
-          <MyReportsGrid posts={filteredFound} search={searchQuery} />
+          <MyReportsGrid posts={foundReports} search={searchQuery} />
         </TabsContent>
       </Tabs>
     </div>
