@@ -7,7 +7,9 @@ interface UserContextProps {
   setUser: React.Dispatch<React.SetStateAction<User>>;
 }
 
-export const UserContext = createContext<UserContextProps | undefined>(undefined);
+export const UserContext = createContext<UserContextProps | undefined>(
+  undefined
+);
 
 interface UserProviderProps {
   children: React.ReactNode;
@@ -19,6 +21,7 @@ const UserProvider = ({ children }: UserProviderProps) => {
     firstName: "John",
     lastName: "Doe",
     email: "john.doe@example.com",
+    avatar: "https://github.com/shadcn.png",
   });
 
   return (
@@ -28,4 +31,4 @@ const UserProvider = ({ children }: UserProviderProps) => {
   );
 };
 
-export default UserProvider
+export default UserProvider;
