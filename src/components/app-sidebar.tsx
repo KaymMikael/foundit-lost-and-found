@@ -9,14 +9,10 @@ import {
   SidebarFooter,
   SidebarHeader,
 } from "@/components/ui/sidebar";
+import useUser from "@/hooks/useUser";
 
 // This is sample data.
 const data = {
-  user: {
-    name: "User",
-    email: "user@example.com",
-    avatar: "/avatars/shadcn.jpg",
-  },
   navMain: [
     {
       title: "Main",
@@ -63,6 +59,7 @@ const data = {
 };
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+  const { user } = useUser();
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>{/* <TeamSwitcher teams={data.teams} /> */}</SidebarHeader>
@@ -70,7 +67,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <NavMain items={data.navMain} />
       </SidebarContent>
       <SidebarFooter>
-        <NavUser user={data.user} />
+        <NavUser user={user} />
       </SidebarFooter>
     </Sidebar>
   );
