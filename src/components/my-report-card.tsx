@@ -14,6 +14,7 @@ import { getDistance } from "@/utils/date";
 import { useNavigate } from "react-router";
 import useReports from "@/hooks/useReports";
 import { toast } from "sonner";
+import PlaceHolder from '@/assets/images/ImagePlaceHolder.jfif'
 
 interface MyReportCardProps {
   post: Post;
@@ -91,7 +92,7 @@ const MyReportCard = ({ post }: MyReportCardProps) => {
             </DropdownMenu>
           </div>
           <img
-            src="https://placehold.co/350x200"
+            src={PlaceHolder}
             alt=""
             className="rounded-lg w-full object-cover"
           />
