@@ -12,6 +12,7 @@ import {
 } from "./ui/dropdown-menu";
 import { getDistance } from "@/utils/date";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
+import { useNavigate } from "react-router";
 
 interface PostReportCardProps {
   userPost: UserPost;
@@ -19,9 +20,14 @@ interface PostReportCardProps {
 
 const PostReportCard = ({ userPost }: PostReportCardProps) => {
   const { post, user } = userPost;
+  const navigate = useNavigate();
 
   const handleMessageClick = (email: string) => {
     console.log(email);
+  };
+
+  const handleViewClick = (postId: string) => {
+    navigate(`/report/${postId}`);
   };
 
   return (
@@ -61,7 +67,7 @@ const PostReportCard = ({ userPost }: PostReportCardProps) => {
               <DropdownMenuContent>
                 <DropdownMenuLabel>Report Settings</DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem>
+                <DropdownMenuItem onClick={() => handleViewClick(post.id)}>
                   <Eye />
                   View
                 </DropdownMenuItem>
