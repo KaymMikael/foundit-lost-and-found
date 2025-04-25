@@ -2,7 +2,6 @@ import { Badge } from "@/components/ui/badge";
 import useReports from "@/hooks/useReports";
 import { Loader } from "lucide-react";
 import { format } from "date-fns";
-import { useEffect } from "react";
 import { useParams } from "react-router";
 import ReportNotFound from "@/components/report-not-found";
 import PlaceHolder from '@/assets/images/ImagePlaceHolder.jfif'
@@ -11,10 +10,6 @@ const ReportPage = () => {
   const { postId } = useParams();
   const { posts, loading } = useReports();
   const userPost = posts.find(({ post }) => post.id === postId);
-
-  useEffect(() => {
-    console.log(userPost);
-  }, [userPost]);
 
   if (loading) {
     return (
