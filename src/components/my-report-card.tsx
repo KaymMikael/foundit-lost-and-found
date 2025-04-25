@@ -12,16 +12,27 @@ import {
 } from "./ui/dropdown-menu";
 import { getDistance } from "@/utils/date";
 import { useNavigate } from "react-router";
+import useReports from "@/hooks/useReports";
+import { toast } from "sonner";
 
 interface MyReportCardProps {
   post: Post;
 }
 
 const MyReportCard = ({ post }: MyReportCardProps) => {
+  const { posts, setPosts } = useReports();
   const navigate = useNavigate();
 
   const handleViewClick = (postId: string) => {
     navigate(`/report/${postId}`);
+  };
+
+  const handleDeleteClick = (postId: string) => {
+    const filteredPost = posts.filter((p) => p.post.id !== postId);
+    setPosts(filteredPost);
+    toast.success("Report Deleted", {
+      description: "The report has been successfully removed.",
+    });
   };
 
   return (
@@ -69,7 +80,10 @@ const MyReportCard = ({ post }: MyReportCardProps) => {
                   <Eye />
                   View
                 </DropdownMenuItem>
-                <DropdownMenuItem variant="destructive">
+                <DropdownMenuItem
+                  variant="destructive"
+                  onClick={() => handleDeleteClick(post.id)}
+                >
                   <Trash />
                   Delete
                 </DropdownMenuItem>
