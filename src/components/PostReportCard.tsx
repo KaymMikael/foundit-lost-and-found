@@ -23,7 +23,7 @@ const PostReportCard = ({ userPost }: PostReportCardProps) => {
   const navigate = useNavigate();
 
   const handleMessageClick = (email: string) => {
-    console.log(email);
+    window.location.href = `mailto:${email}`;
   };
 
   const handleViewClick = (postId: string) => {
