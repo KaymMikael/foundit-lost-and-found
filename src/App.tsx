@@ -11,6 +11,7 @@ import FoundItemsPage from "./pages/FoundItemsPage";
 import LostPetsPage from "./pages/LostPetsPage";
 import FoundPetsPage from "./pages/FoundPetsPage";
 import ReportPage from "./pages/ReportPage";
+import CreateReportPage from "./pages/CreateReportPage";
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
           <Route path="/lost-pets" element={<LostPetsPage />} />
           <Route path="/found-pets" element={<FoundPetsPage />} />
           <Route path="/report/:postId" element={<ReportPage />} />
+          <Route path="/create-report" element={<CreateReportPage/>}/>
         </Route>
       </Routes>
     </>
