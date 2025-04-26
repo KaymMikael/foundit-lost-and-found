@@ -23,6 +23,10 @@ const data = {
           title: "Dashboard",
           url: "/dashboard",
         },
+        {
+          title: "Create Report",
+          url: "/create-report",
+        },
       ],
     },
     {
