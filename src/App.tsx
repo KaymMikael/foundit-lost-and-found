@@ -11,6 +11,7 @@ import FoundItemsPage from "./pages/FoundItemsPage";
 import LostPetsPage from "./pages/LostPetsPage";
 import FoundPetsPage from "./pages/FoundPetsPage";
 import ReportPage from "./pages/ReportPage";
+import EditReportPage from "./pages/EditReportPage";
 
 const App = () => {
   return (
@@ -28,7 +29,8 @@ const App = () => {
           <Route path="/lost-pets" element={<LostPetsPage />} />
           <Route path="/found-pets" element={<FoundPetsPage />} />
           <Route path="/report/:postId" element={<ReportPage />} />
-          <Route path="/create-report" element={<SubmitReportPage/>}/>
+          <Route path="/create-report" element={<SubmitReportPage />} />
+          <Route path="/edit-report/:postId" element={<EditReportPage />} />
         </Route>
       </Routes>
     </>
