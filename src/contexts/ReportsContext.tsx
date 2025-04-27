@@ -24,6 +24,7 @@ const mockUsers: User[] = Array.from({ length: 10 }).map((_, i) => ({
   firstName: `User${i + 1}`,
   lastName: `Test`,
   email: `user${i + 1}@example.com`,
+  avatar:''
 }));
 
 const ReportsProvider = ({ children }: ReportsProviderProps) => {
