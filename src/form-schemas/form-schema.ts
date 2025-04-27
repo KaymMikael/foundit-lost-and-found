@@ -13,8 +13,10 @@ export const submitReportSchema = z.object({
       20,
       "Description should be at least 20 characters long to provide sufficient details."
     ),
-  type: z.string().nonempty("Selecting a report type is required."),
-  category: z.string().nonempty("Please select a category for your report."),
+  type: z.enum(["lost", "found"]),
+  category: z.enum(["pet", "item"], {
+    message: "Please select a category for your report.",
+  }),
   dateLostFound: z.date({
     required_error: "The date of when the item was lost or found is required.",
   }),
