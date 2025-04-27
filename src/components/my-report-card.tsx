@@ -36,6 +36,10 @@ const MyReportCard = ({ post }: MyReportCardProps) => {
     });
   };
 
+  const handleEditClick = (postId:string) => {
+    navigate(`/edit-report/${postId}`)
+  }
+
   return (
     <Card>
       <CardContent>
@@ -73,7 +77,7 @@ const MyReportCard = ({ post }: MyReportCardProps) => {
               <DropdownMenuContent>
                 <DropdownMenuLabel>Report Settings</DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem>
+                <DropdownMenuItem onClick={() => handleEditClick(post.id)}>
                   <SquarePen />
                   Edit
                 </DropdownMenuItem>
