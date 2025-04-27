@@ -29,15 +29,20 @@ import { cn } from "@/lib/utils";
 import { CalendarIcon } from "lucide-react";
 import { fetchAddress } from "@/utils/address";
 import { submitReportSchema } from "@/form-schemas/form-schema";
+import useReports from "@/hooks/useReports";
+import useUser from "@/hooks/useUser";
+import { Post, UserPost } from "@/types/index.type";
+import { v4 } from "uuid";
+import { toast } from "sonner";
 
 const SubmitReportForm = () => {
+  const { user } = useUser();
+  const { setPosts } = useReports();
   const form = useForm<z.infer<typeof submitReportSchema>>({
     resolver: zodResolver(submitReportSchema),
     defaultValues: {
       title: "",
       description: "",
-      type: "",
-      category: "",
       location: {
         latitude: 13.980166,
         longitude: 121.102111,
@@ -48,6 +53,30 @@ const SubmitReportForm = () => {
 
   const onSubmit = (values: z.infer<typeof submitReportSchema>) => {
     console.log("Form submitted with values:", values);
+    // Extract only the desired fields from values
+    const { title, description, type, category, dateLostFound, location } =
+      values;
+
+    // Construct a new post without the reportImage field
+    const newReport: Post = {
+      id: v4(),
+      status: "active",
+      title,
+      description,
+      type,
+      category,
+      dateLostFound: dateLostFound.toISOString(),
+      location,
+      createdAt: new Date().toISOString(),
+    };
+
+    const newUserPost: UserPost = { user, post: newReport };
+
+    setPosts((prev) => [...prev, newUserPost]); // Include user details and new report fields
+    toast.success("Success! Report Submitted", {
+      description:
+        "Your report has been successfully submitted. Thank you for taking the time to share your details.",
+    });
   };
 
   return (
