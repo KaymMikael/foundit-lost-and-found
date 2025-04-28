@@ -57,3 +57,30 @@ export const itemsPetsSearchSchema = z.object({
   searchQuery: z.string(),
   sortOrder: z.string(),
 });
+
+export const editReportSchema = z.object({
+  title: z
+    .string()
+    .nonempty("A title is required. Please provide a brief and clear title."),
+  description: z
+    .string()
+    .nonempty(
+      "A description is required. Please provide additional details about your report."
+    )
+    .min(
+      20,
+      "Description should be at least 20 characters long to provide sufficient details."
+    ),
+  type: z.enum(["lost", "found"]),
+  category: z.enum(["pet", "item"], {
+    message: "Please select a category for your report.",
+  }),
+  dateLostFound: z.date({
+    required_error: "The date of when the item was lost or found is required.",
+  }),
+  location: z.object({
+    latitude: z.number(),
+    longitude: z.number(),
+    place: z.string(),
+  }),
+});
