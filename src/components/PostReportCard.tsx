@@ -1,3 +1,4 @@
+import PlaceHolder from '@/assets/images/ImagePlaceHolder.jfif'
 import { EllipsisVertical, Eye, MessageCircle } from "lucide-react";
 import { Badge } from "./ui/badge";
 import { Card, CardContent } from "./ui/card";
@@ -81,7 +82,7 @@ const PostReportCard = ({ userPost }: PostReportCardProps) => {
             </DropdownMenu>
           </div>
           <img
-            src="https://placehold.co/350x200"
+            src={PlaceHolder}
             alt=""
             className="rounded-lg w-full object-cover"
           />
