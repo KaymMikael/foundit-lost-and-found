@@ -1,4 +1,12 @@
-import { EllipsisVertical, Eye, SquarePen, Trash } from "lucide-react";
+import {
+  CheckCircle,
+  CheckSquare,
+  EllipsisVertical,
+  Eye,
+  Smile,
+  SquarePen,
+  Trash,
+} from "lucide-react";
 import { Badge } from "./ui/badge";
 import { Card, CardContent } from "./ui/card";
 import { Post } from "@/types/index.type";
@@ -14,7 +22,7 @@ import { getDistance } from "@/utils/date";
 import { useNavigate } from "react-router";
 import useReports from "@/hooks/useReports";
 import { toast } from "sonner";
-import PlaceHolder from '@/assets/images/ImagePlaceHolder.jfif'
+import PlaceHolder from "@/assets/images/ImagePlaceHolder.jfif";
 
 interface MyReportCardProps {
   post: Post;
@@ -36,9 +44,32 @@ const MyReportCard = ({ post }: MyReportCardProps) => {
     });
   };
 
-  const handleEditClick = (postId:string) => {
-    navigate(`/edit-report/${postId}`)
-  }
+  const handleEditClick = (postId: string) => {
+    navigate(`/edit-report/${postId}`);
+  };
+
+  const handleStatusUpdate = (postId: string, newStatus: string) => {
+    // Update the specific post's status
+    const updatedPosts = posts.map((p) =>
+      p.post.id === postId
+        ? {
+            ...p,
+            post: {
+              ...p.post,
+              status: newStatus as "active" | "reunited" | "resolved",
+            },
+          }
+        : p
+    );
+
+    // Update the state with the new posts array
+    setPosts(updatedPosts);
+
+    // Display a success message
+    toast.success("Status Updated", {
+      description: `The status has been successfully updated to "${newStatus}".`,
+    });
+  };
 
   return (
     <Card>
@@ -91,6 +122,34 @@ const MyReportCard = ({ post }: MyReportCardProps) => {
                 >
                   <Trash />
                   Delete
+                </DropdownMenuItem>
+                <DropdownMenuLabel>Mark as</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem
+                  onClick={() => handleStatusUpdate(post.id, "active")}
+                >
+                  <CheckCircle className="mr-2 h-4 w-4" />
+                  Active
+                </DropdownMenuItem>
+                <DropdownMenuItem
+                  onClick={() =>
+                    handleStatusUpdate(
+                      post.id,
+                      post.category === "item" ? "resolved" : "reunited"
+                    )
+                  }
+                >
+                  {post.category === "item" ? (
+                    <>
+                      <CheckSquare className="mr-2 h-4 w-4" />
+                      Resolved
+                    </>
+                  ) : (
+                    <>
+                      <Smile className="mr-2 h-4 w-4" />
+                      Reunited
+                    </>
+                  )}
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
