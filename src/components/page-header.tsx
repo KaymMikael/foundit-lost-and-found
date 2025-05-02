@@ -8,18 +8,6 @@ const navItems = [
     title: "Home",
   },
   {
-    path: "/about",
-    title: "About Us",
-  },
-  {
-    path: "/contact",
-    title: "Contact Us",
-  },
-  {
-    path: "/features",
-    title: "Features",
-  },
-  {
     path: "/login",
     title: "Log In",
   },
