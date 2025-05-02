@@ -12,6 +12,7 @@ import LostPetsPage from "./pages/LostPetsPage";
 import FoundPetsPage from "./pages/FoundPetsPage";
 import ReportPage from "./pages/ReportPage";
 import EditReportPage from "./pages/EditReportPage";
+import PageNotFound from "./pages/PageNotFound";
 
 const App = () => {
   return (
@@ -32,6 +33,7 @@ const App = () => {
           <Route path="/create-report" element={<SubmitReportPage />} />
           <Route path="/edit-report/:postId" element={<EditReportPage />} />
         </Route>
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </>
   );
