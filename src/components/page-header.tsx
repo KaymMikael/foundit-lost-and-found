@@ -1,4 +1,4 @@
-import Logo from "@/assets/images/FoundIt_Logo.png";
+import Logo from "@/assets/images/FoundIt_Logo-min.png";
 import { Link } from "react-router";
 import HeaderNavigationSheet from "./header-navigation-sheet";
 
