@@ -1,54 +1,16 @@
-# React + TypeScript + Vite
+# FoundIt: A Simple Platform for Reporting Lost Items & Pets in  Mataasnakahoy, Batangas
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+FoundIt is a prototype web platform designed to help residents of Mataasnakahoy, Batangas report and locate lost items and pets. This platform serves as a centralized and accessible space where community members can share information about missing belongings or animals, making it easier to reconnect them with their rightful owners.
 
-Currently, two official plugins are available:
+## General Objectives
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+FoundIt aims to:
+- Provide a reliable and user-friendly system for reporting and searching for lost items or pets.
+- Encourage community engagement and cooperation in recovering lost belongings.
+- Offer organized listings and an easy search function for quick navigation.
+- Ensure verified contact information for secure communication between finders and owners.
+- Increase the chances of timely recovery and reunion for lost possessions and animals.
 
-## Expanding the ESLint configuration
+## Prototype Disclaimer
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+*This web platform is currently a prototype developed for presentation and demonstration purposes only. It is not yet an official or fully operational service but rather a conceptual model to showcase how a lost-and-found system can function within the Mataasnakahoy community.*
