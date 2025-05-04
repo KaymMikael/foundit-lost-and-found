@@ -1,3 +1,4 @@
+import iconURL from "leaflet/dist/images/marker-icon.png";
 import "leaflet/dist/leaflet.css";
 import { format } from "date-fns";
 import { useForm } from "react-hook-form";
@@ -34,6 +35,7 @@ import useUser from "@/hooks/useUser";
 import { Post, UserPost } from "@/types/index.type";
 import { v4 } from "uuid";
 import { toast } from "sonner";
+import L from "leaflet";
 
 const SubmitReportForm = () => {
   const { user } = useUser();
@@ -50,6 +52,7 @@ const SubmitReportForm = () => {
       },
     },
   });
+  const icon = L.icon({ iconUrl: iconURL });
 
   const onSubmit = (values: z.infer<typeof submitReportSchema>) => {
     console.log("Form submitted with values:", values);
@@ -248,6 +251,7 @@ const SubmitReportForm = () => {
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                   />
                   <Marker
+                    icon={icon}
                     draggable
                     position={[field.value.latitude, field.value.longitude]}
                     eventHandlers={{
